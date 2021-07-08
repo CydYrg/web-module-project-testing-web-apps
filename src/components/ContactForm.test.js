@@ -39,3 +39,23 @@ test('renders all firstName, lastName and email text when submitted. Does NOT re
 test('renders all fields text when all fields are submitted.', async () => {
     
 });
+
+ // Arrange
+ render(<ContactForm/>);
+ // Act
+ const Input = screen.getByLabelText(//i);
+ const Input = screen.getByLabelText(//i);
+ const Input = screen.getByLabelText(//i);
+ const button = screen.getByRole('button', { value: /submit!/i });
+ // Act
+ userEvent.type(Input, '');
+ userEvent.type(Input, "");
+ userEvent.type(Input, "is very cute");
+ userEvent.click(button);
+ // Assert
+ const newContact = await screen.findByText(//i);
+ expect(Input).toHaveValue('');
+ expect(Input).toHaveValue("");
+ expect(Input).toHaveValue("is very cute");
+ expect(newContact).toBeTruthy();
+});
